@@ -20,3 +20,22 @@ function initTabNav() {
   }
 }
 initTabNav();
+
+function initAccordion() {
+  const acordionList = document.querySelectorAll(".js-accordion dt");
+  const activeClass = "ativo";
+  if (acordionList.length) {
+    acordionList[0].classList.add(activeClass);
+    acordionList[0].nextElementSibling.classList.add(activeClass);
+
+    function activeAccordion() {
+      this.classList.toggle(activeClass);
+      this.nextElementSibling.classList.toggle(activeClass);
+    }
+
+    acordionList.forEach((item) => {
+      item.addEventListener("click", activeAccordion);
+    });
+  }
+}
+initAccordion();
